@@ -26,7 +26,6 @@ public class GroupTable extends AbsTable {
         return resultSetToArray(rs);
     }
 
-
     public void insert(Group group) {
         //Сделать запрос на добавление
         final String sqlRequest = String.format("INSERT INTO %s (id, groupName, idCurator) " +
@@ -36,7 +35,6 @@ public class GroupTable extends AbsTable {
                 group.getGroupName(),
                 group.getIdCurator());
         db.executeRequest(sqlRequest);
-
     }
 
     private ArrayList<Group> resultSetToArray(ResultSet rs) {
@@ -54,28 +52,14 @@ public class GroupTable extends AbsTable {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-
             return result;
         }
         return result;
     }
 
-
-    public void updateId( int idCurator){
-
-        String sqlQuery = String.format("UPDATE %s SET idCurator=%s", tableName, idCurator );
-        db.executeRequest(sqlQuery);
-
-    }
-
-
-    public void updateIdByName(String groupName, int idCurator, String tableName){
-
+    public void updateIdByName(String groupName, int idCurator, String tableName) {
         String sqlQuery = String.format("UPDATE %s SET idCurator=%s WHERE groupName='%s'", tableName,
-                idCurator,groupName );
+                idCurator, groupName);
         db.executeRequest(sqlQuery);
-
     }
-
-
 }

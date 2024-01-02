@@ -10,13 +10,13 @@ public class PropertiesReader implements ISettings {
 
     public Map<String, String> read() {
         Map<String, String> props = new HashMap<>();
-        try(InputStream input = getClass()
+        try (InputStream input = getClass()
                 .getClassLoader()
-                .getResourceAsStream("SQLSettings.properties")){
+                .getResourceAsStream("SQLSettings.properties")) {
             Properties properties = new Properties();
             properties.load(input);
 
-            for(Map.Entry<Object, Object> entry: properties.entrySet()){
+            for (Map.Entry<Object, Object> entry : properties.entrySet()) {
                 props.put(
                         entry.getKey().toString(),
                         entry.getValue().toString());

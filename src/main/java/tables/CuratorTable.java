@@ -3,7 +3,6 @@ package tables;
 
 import objects.Curator;
 
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -27,14 +26,12 @@ public class CuratorTable extends AbsTable {
         return resultSetToArray(rs);
     }
 
-
     public void insert(Curator curator) {
         //Сделать запрос на добавление
         final String sqlRequest = String.format("INSERT INTO %s (id, curatorName) " +
                         "VALUES (%d, '%s')",
                 tableName, curator.getId(), curator.getCuratorName());
         db.executeRequest(sqlRequest);
-
     }
 
     private ArrayList<Curator> resultSetToArray(ResultSet rs) {
@@ -55,4 +52,3 @@ public class CuratorTable extends AbsTable {
         return result;
     }
 }
-

@@ -15,10 +15,10 @@ public class Group {
                 '}';
     }
 
-    public Group(long id_group, String group_name, long id_curator) {
-        this.idGroup = id_group;
-        this.groupName = group_name;
-        this.idCurator = id_curator;
+    public Group(long idGroup, String groupName, long idCurator) {
+        this.idGroup = idGroup;
+        this.groupName = groupName;
+        this.idCurator = idCurator;
 
     }
 
@@ -26,7 +26,7 @@ public class Group {
         return idGroup;
     }
 
-    public void setId(long id_group) {
+    public void setIdGroup(long idGroup) {
         this.idGroup = idGroup;
     }
 
@@ -45,5 +45,4 @@ public class Group {
     public void setIdCurator(long idCurator) {
         this.idCurator = idCurator;
     }
-
 }

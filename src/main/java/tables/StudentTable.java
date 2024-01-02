@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class StudentTable extends AbsTable {
+    private final static String TABLE_NAME = "students";
 
     public StudentTable() {
-        super("students");
+        super(TABLE_NAME);
         columns = new HashMap<>();
         columns.put("id", "INT NOT NULL AUTO_INCREMENT PRIMARY KEY");
         columns.put("fullName", "varchar(100)");
@@ -24,7 +25,6 @@ public class StudentTable extends AbsTable {
         String sqlQuery = String.format("SELECT * FROM %s", tableName);
         return selectByQuery(sqlQuery);
     }
-
 
     private ArrayList<Student> selectByQuery(String sqlQuery) {
         ArrayList<Student> students = new ArrayList<>();
@@ -47,7 +47,6 @@ public class StudentTable extends AbsTable {
     }
 
     public void insert(Student student) {
-
         String sqlQuery = String.format("INSERT INTO %s (fullName, sex, idGroup) " +
                         "VALUES ( '%s', '%s', '%d')",
                 tableName,
@@ -55,7 +54,5 @@ public class StudentTable extends AbsTable {
                 student.getSex(),
                 student.getIdGroup());
         db.executeRequest(sqlQuery);
-
     }
-
 }

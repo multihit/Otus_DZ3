@@ -82,7 +82,7 @@ public class Main {
 
             System.out.println("----------------------------------------------------------");
             System.out.print("Всего студентов:");
-            studentTable.select("SELECT COUNT(*) FROM students %s");
+            studentTable.select("SELECT COUNT(*) FROM %s");
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все студентки:");

@@ -4,7 +4,6 @@ public class Curator {
     private long id;
     private String curatorName;
 
-
     @Override
     public String toString() {
         return "Кураторы{" +
@@ -36,7 +35,5 @@ public class Curator {
 
     public Curator(String curatorName) {
         this.curatorName = curatorName;
-
-
     }
 }

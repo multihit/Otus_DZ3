@@ -20,22 +20,17 @@ public abstract class AbsTable {
     public void create() {
         String sqlRequest = String.format("CREATE TABLE IF NOT EXISTS %s (%s)",
                 this.tableName, convertMapColumnsToString());
-
         db.executeRequest(sqlRequest);
-
     }
 
     private String convertMapColumnsToString() {
-        final String result = columns.entrySet().stream()
+        return columns.entrySet().stream()
                 .map((Map.Entry entry) -> String.format("%s %s", entry.getKey(),
                         entry.getValue()))
                 .collect(Collectors.joining(", "));
-        return result;
     }
 
-
     public void select(String query) {
-
         final String sqlRequest = String.format(query, tableName);
         ResultSet rs = db.executeRequestWithAnswer(sqlRequest);
         // Количество колонок в результирующем запросе
@@ -50,7 +45,6 @@ public abstract class AbsTable {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-
         }
     }
 }

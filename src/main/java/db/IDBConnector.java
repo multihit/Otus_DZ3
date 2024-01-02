@@ -6,5 +6,4 @@ public interface IDBConnector {
     void executeRequest(String response);
 
     ResultSet executeRequestWithAnswer(String response);
-
 }
