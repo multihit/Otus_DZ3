@@ -2,14 +2,14 @@ package objects;
 
 public class Curator {
     private long id;
-    private String curator_name;
+    private String curatorName;
 
 
     @Override
     public String toString() {
         return "Кураторы{" +
                 "id=" + id +
-                ", curator_name='" + curator_name + '\'' +
+                ", curatorName='" + curatorName + '\'' +
                 '}';
     }
 
@@ -21,21 +21,21 @@ public class Curator {
         this.id = id;
     }
 
-    public String getCurator_name() {
-        return curator_name;
+    public String getCuratorName() {
+        return curatorName;
     }
 
-    public void setCurator_name(String curator_name) {
-        this.curator_name = curator_name;
+    public void setCuratorName(String curatorName) {
+        this.curatorName = curatorName;
     }
 
-    public Curator(long id, String group_name) {
+    public Curator(long id, String groupName) {
         this.id = id;
-        this.curator_name = group_name;
+        this.curatorName = groupName;
     }
 
-    public Curator(String curator_name) {
-        this.curator_name = curator_name;
+    public Curator(String curatorName) {
+        this.curatorName = curatorName;
 
 
     }

@@ -16,7 +16,7 @@ public class CuratorTable extends AbsTable {
         super(TABLE_NAME);
         columns = new HashMap<>();
         columns.put("id", "bigint");
-        columns.put("curator_name", "varchar(100)");
+        columns.put("curatorName", "varchar(100)");
         create();
     }
 
@@ -30,9 +30,9 @@ public class CuratorTable extends AbsTable {
 
     public void insert(Curator curator) {
         //Сделать запрос на добавление
-        final String sqlRequest = String.format("INSERT INTO %s (id, curator_name) " +
+        final String sqlRequest = String.format("INSERT INTO %s (id, curatorName) " +
                         "VALUES (%d, '%s')",
-                tableName, curator.getId(), curator.getCurator_name());
+                tableName, curator.getId(), curator.getCuratorName());
         db.executeRequest(sqlRequest);
 
     }
@@ -47,7 +47,7 @@ public class CuratorTable extends AbsTable {
                 result.add(
                         new Curator(
                                 rs.getLong("id"),
-                                rs.getString("curator_name")));
+                                rs.getString("curatorName")));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

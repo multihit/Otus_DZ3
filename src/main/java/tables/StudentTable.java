@@ -14,9 +14,9 @@ public class StudentTable extends AbsTable {
         super("students");
         columns = new HashMap<>();
         columns.put("id", "INT NOT NULL AUTO_INCREMENT PRIMARY KEY");
-        columns.put("full_name", "varchar(100)");
+        columns.put("fullName", "varchar(100)");
         columns.put("sex", "varchar(10)");
-        columns.put("id_group", "int");
+        columns.put("idGroup", "int");
         create();
     }
 
@@ -35,9 +35,9 @@ public class StudentTable extends AbsTable {
                 //Создать объект устройство и добавление его в результирующий массив
                 students.add(new Student(
                         rs.getLong("id"),
-                        rs.getString("full_name"),
+                        rs.getString("fullName"),
                         rs.getString("sex"),
-                        rs.getInt("id_group")
+                        rs.getInt("idGroup")
                 ));
             }
         } catch (SQLException ex) {
@@ -48,12 +48,12 @@ public class StudentTable extends AbsTable {
 
     public void insert(Student student) {
 
-        String sqlQuery = String.format("INSERT INTO %s (full_name, sex, id_group) " +
+        String sqlQuery = String.format("INSERT INTO %s (fullName, sex, idGroup) " +
                         "VALUES ( '%s', '%s', '%d')",
                 tableName,
-                student.getFull_name(),
+                student.getFullName(),
                 student.getSex(),
-                student.getId_group());
+                student.getIdGroup());
         db.executeRequest(sqlQuery);
 
     }

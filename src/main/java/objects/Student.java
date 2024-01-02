@@ -2,33 +2,33 @@ package objects;
 
 public class Student {
     private long id;
-    private String full_name, sex;
-    private int id_group;
+    private String fullName, sex;
+    private int idGroup;
 
 
     @Override
     public String toString() {
         return "Студенты{" +
                 +id +
-                ", '" + full_name + '\'' +
+                ", '" + fullName + '\'' +
                 ",'" + sex + '\'' +
-                ", id_group='" + id_group + '\'' +
+                ", idGroup='" + idGroup + '\'' +
                 '}';
     }
 
 
-    public Student(Long id, String full_name, String sex, int id_group) {
+    public Student(Long id, String fullName, String sex, int idGroup) {
         this.id = id;
-        this.full_name = full_name;
+        this.fullName = fullName;
         this.sex = sex;
-        this.id_group = id_group;
+        this.idGroup = idGroup;
     }
 
 
-    public Student(String full_name, String sex, int id_group) {
-        this.full_name = full_name;
+    public Student(String full_name, String sex, int idGroup) {
+        this.fullName = full_name;
         this.sex = sex;
-        this.id_group = id_group;
+        this.idGroup = idGroup;
     }
 
 
@@ -40,21 +40,21 @@ public class Student {
         this.id = id;
     }
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String type) {
-        this.full_name = full_name;
+    public void setFullName(String type) {
+        this.fullName = fullName;
     }
 
 
-    public int getId_group() {
-        return id_group;
+    public int getIdGroup() {
+        return idGroup;
     }
 
-    public void setId_group(int id_group) {
-        this.id_group = id_group;
+    public void setIdGroup(int idGroup) {
+        this.idGroup = idGroup;
     }
 
     public String getSex() {

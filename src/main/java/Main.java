@@ -86,26 +86,26 @@ public class Main {
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все студентки:");
-            studentTable.select("SELECT full_name FROM students WHERE sex='ж'");
+            studentTable.select("SELECT fullName FROM students WHERE sex='ж'");
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все группы с кураторами:");
-            studentTable.select("SELECT group1.id_curator, curator.curator_name, group1.group_name \n" +
+            studentTable.select("SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
                     "FROM group1 \n" +
                     "JOIN curator \n" +
-                    "ON group1.id_curator=curator.id;");
+                    "ON group1.idCurator=curator.id;");
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все группы с кураторами и студентами:");
-            studentTable.select("SELECT students.id, students.full_name, students.sex, " +
-                    "group1.group_name, curator.curator_name" +
-                    " FROM students JOIN group1 ON students.id_group=group1.id" +
-                    " JOIN curator ON group1.id_curator=curator.id ORDER BY students.id ASC;");
+            studentTable.select("SELECT students.id, students.fullName, students.sex, " +
+                    "group1.groupName, curator.curatorName" +
+                    " FROM students JOIN group1 ON students.idGroup=group1.id" +
+                    " JOIN curator ON group1.idCurator=curator.id ORDER BY students.id ASC;");
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все студенты из заданой группы:");
-            studentTable.select("SELECT full_name " +
-                    "FROM students WHERE id_group=(SELECT id FROM group1 WHERE group_name='" + groupSearch + "')");
+            studentTable.select("SELECT fullName " +
+                    "FROM students WHERE idGroup=(SELECT id FROM group1 WHERE groupName='" + groupSearch + "')");
             System.out.println("----------------------------------------------------------");
 
         } finally {

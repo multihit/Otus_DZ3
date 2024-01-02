@@ -1,7 +1,6 @@
 package tables;
 
 import objects.Group;
-import objects.Student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,8 +14,8 @@ public class GroupTable extends AbsTable {
         super(TABLE_NAME);
         columns = new HashMap<>();
         columns.put("id", "bigint");
-        columns.put("group_name", "VARCHAR(50)");
-        columns.put("id_curator", "int");
+        columns.put("groupName", "VARCHAR(50)");
+        columns.put("idCurator", "int");
         create();
     }
 
@@ -30,12 +29,12 @@ public class GroupTable extends AbsTable {
 
     public void insert(Group group) {
         //Сделать запрос на добавление
-        final String sqlRequest = String.format("INSERT INTO %s (id, group_name, id_curator) " +
+        final String sqlRequest = String.format("INSERT INTO %s (id, groupName, idCurator) " +
                         "VALUES (%d, '%s', '%d')",
                 tableName,
                 group.getId(),
-                group.getGroup_name(),
-                group.getId_curator());
+                group.getGroupName(),
+                group.getIdCurator());
         db.executeRequest(sqlRequest);
 
     }
@@ -50,8 +49,8 @@ public class GroupTable extends AbsTable {
                 result.add(
                         new Group(
                                 rs.getLong("id"),
-                                rs.getString("group_name"),
-                                rs.getLong("id_curator")));
+                                rs.getString("groupName"),
+                                rs.getLong("idCurator")));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -62,9 +61,9 @@ public class GroupTable extends AbsTable {
     }
 
 
-    public void updateId( int id_curator){
+    public void updateId( int idCurator){
 
-        String sqlQuery = String.format("UPDATE %s SET id_curator=%s", tableName, id_curator );
+        String sqlQuery = String.format("UPDATE %s SET idCurator=%s", tableName, idCurator );
         db.executeRequest(sqlQuery);
 
     }
@@ -72,7 +71,7 @@ public class GroupTable extends AbsTable {
 
     public void updateIdByName(String groupName, int idCurator, String tableName){
 
-        String sqlQuery = String.format("UPDATE %s SET id_curator=%s WHERE group_name='%s'", tableName,
+        String sqlQuery = String.format("UPDATE %s SET idCurator=%s WHERE groupName='%s'", tableName,
                 idCurator,groupName );
         db.executeRequest(sqlQuery);
 

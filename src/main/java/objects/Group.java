@@ -2,48 +2,48 @@ package objects;
 
 
 public class Group {
-    private long id_group;
-    private String group_name;
-    private long id_curator;
+    private long idGroup;
+    private String groupName;
+    private long idCurator;
 
     @Override
     public String toString() {
         return "Группы{" +
-                "id_group=" + id_group +
-                ", group_name='" + group_name + '\'' +
-                ", id_curator='" + id_curator + '\'' +
+                "idGroup=" + idGroup +
+                ", groupName='" + groupName + '\'' +
+                ", idCurator='" + idCurator + '\'' +
                 '}';
     }
 
     public Group(long id_group, String group_name, long id_curator) {
-        this.id_group = id_group;
-        this.group_name = group_name;
-        this.id_curator = id_curator;
+        this.idGroup = id_group;
+        this.groupName = group_name;
+        this.idCurator = id_curator;
 
     }
 
     public long getId() {
-        return id_group;
+        return idGroup;
     }
 
     public void setId(long id_group) {
-        this.id_group = id_group;
+        this.idGroup = idGroup;
     }
 
-    public String getGroup_name() {
-        return group_name;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setGroup_name(String group_name) {
-        this.group_name = group_name;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    public Long getId_curator() {
-        return id_curator;
+    public Long getIdCurator() {
+        return idCurator;
     }
 
-    public void setId_curator(long id_curator) {
-        this.id_curator = id_curator;
+    public void setIdCurator(long idCurator) {
+        this.idCurator = idCurator;
     }
 
 }
