@@ -66,7 +66,7 @@ public class Main {
             if (curators.size() < 4) {
                 curatorTable.insert(new Curator(23423, "Буянов Петр Ильич"));
                 curatorTable.insert(new Curator(23476, "Сидоренко Павел Александрович"));
-                curatorTable.insert(new Curator(23476, "Жиглов Олег Георгиевич"));
+                curatorTable.insert(new Curator(234, "Жиглов Олег Георгиевич"));
                 curatorTable.insert(new Curator(476, "Ушакова Василиса Евгеньевна"));
             }
 
@@ -78,7 +78,7 @@ public class Main {
             }
 
             //меняем id куратора
-            groupTable.updateIdByName("оптика", 23423, "group1");
+            groupTable.updateIdByName("оптика", 234, "group1");
 
             System.out.println("----------------------------------------------------------");
             System.out.print("Всего студентов:");
