@@ -76,7 +76,7 @@ public class Main {
             //SQL запросы
             studentTable.selectAllStudents();
             studentTable.selectAllFemaleStudents();
-            studentTable.selectAllGroupsWithCurators();
+            groupTable.selectAllGroupsWithCurators();
             studentTable.selectAllGroupsWithCuratorsAndStudents();
             studentTable.selectSearchGroup();
 

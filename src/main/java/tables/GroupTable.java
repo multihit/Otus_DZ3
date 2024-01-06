@@ -62,4 +62,14 @@ public class GroupTable extends AbsTable {
                 idCurator, groupName);
         db.executeRequest(sqlQuery);
     }
+
+    public void selectAllGroupsWithCurators() {
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Все группы с кураторами:");
+        final String sqlQuery = "SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
+                "FROM group1 \n" +
+                "JOIN curator \n" +
+                "ON group1.idCurator=curator.id;";
+        select(sqlQuery);
+    }
 }
