@@ -50,7 +50,6 @@ public class Main {
                 groupTable.insert(new Group(1154, "оптика", 476));
             }
 
-
             groups = groupTable.selectAll();
 
             for (Group tm : groups) {
