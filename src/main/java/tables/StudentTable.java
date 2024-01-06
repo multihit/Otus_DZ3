@@ -58,45 +58,45 @@ public class StudentTable extends AbsTable {
         db.executeRequest(sqlQuery);
     }
 
-    public ArrayList<Student> selectAllStudents() {
+    public void selectAllStudents() {
         System.out.println("----------------------------------------------------------");
         System.out.print("Всего студентов:");
         final String sqlQuery = String.format("SELECT COUNT(*) FROM %s", tableName);
-        return select(sqlQuery);
+        select(sqlQuery);
     }
 
-    public ArrayList<Student> selectAllFemaleStudents() {
+    public void selectAllFemaleStudents() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все студентки:");
         final String sqlQuery = String.format("SELECT fullName FROM students WHERE sex='ж'");
-        return select(sqlQuery);
+        select(sqlQuery);
     }
 
-    public ArrayList<Student> selectAllGroupsWithCurators() {
+    public void selectAllGroupsWithCurators() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все группы с кураторами:");
         final String sqlQuery = String.format("SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
                 "FROM group1 \n" +
                 "JOIN curator \n" +
                 "ON group1.idCurator=curator.id;");
-        return select(sqlQuery);
+        select(sqlQuery);
     }
 
-    public ArrayList<Student> selectAllGroupsWithCuratorsAndStudents() {
+    public void selectAllGroupsWithCuratorsAndStudents() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все группы с кураторами и студентами:");
         final String sqlQuery = String.format("SELECT students.id, students.fullName, students.sex, " +
                 "group1.groupName, curator.curatorName" +
                 " FROM students JOIN group1 ON students.idGroup=group1.id" +
                 " JOIN curator ON group1.idCurator=curator.id ORDER BY students.id ASC;");
-        return select(sqlQuery);
+        select(sqlQuery);
     }
 
-    public ArrayList<Student> selectSearchGroup() {
+    public void selectSearchGroup() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все студенты из заданой группы:");
         final String sqlQuery = String.format("SELECT fullName " +
                 "FROM students WHERE idGroup=(SELECT id FROM group1 WHERE groupName='" + groupSearch + "')");
-        return select(sqlQuery);
+        select(sqlQuery);
     }
 }
