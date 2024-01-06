@@ -12,8 +12,8 @@ public class Student {
         this.idGroup = idGroup;
     }
 
-    public Student(String full_name, String sex, int idGroup) {
-        this.fullName = full_name;
+    public Student(String fullName, String sex, int idGroup) {
+        this.fullName = fullName;
         this.sex = sex;
         this.idGroup = idGroup;
     }

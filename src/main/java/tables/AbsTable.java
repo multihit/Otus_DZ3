@@ -2,9 +2,11 @@ package tables;
 
 import db.IDBConnector;
 import db.MySQLConnector;
+import objects.Student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -30,7 +32,7 @@ public abstract class AbsTable {
                 .collect(Collectors.joining(", "));
     }
 
-    public void select(String query) {
+    public ArrayList<Student> select(String query) {
         final String sqlRequest = String.format(query, tableName);
         ResultSet rs = db.executeRequestWithAnswer(sqlRequest);
         // Количество колонок в результирующем запросе
@@ -46,5 +48,7 @@ public abstract class AbsTable {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+
+        return null;
     }
 }

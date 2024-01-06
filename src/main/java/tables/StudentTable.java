@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class StudentTable extends AbsTable {
+    private static final String groupSearch = "оптика";
     private final static String TABLE_NAME = "students";
 
     public StudentTable() {
@@ -54,5 +56,37 @@ public class StudentTable extends AbsTable {
                 student.getSex(),
                 student.getIdGroup());
         db.executeRequest(sqlQuery);
+    }
+
+    public ArrayList<Student> selectAllStudents() {
+        final String sqlQuery = String.format("SELECT COUNT(*) FROM %s", tableName);
+        return select(sqlQuery);
+    }
+
+    public ArrayList<Student> selectAllFemailStudents() {
+        final String sqlQuery = String.format("SELECT fullName FROM students WHERE sex='ж'");
+        return select(sqlQuery);
+    }
+
+    public ArrayList<Student> selectAllGrupsWithCurators() {
+        final String sqlQuery = String.format("SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
+                "FROM group1 \n" +
+                "JOIN curator \n" +
+                "ON group1.idCurator=curator.id;");
+        return select(sqlQuery);
+    }
+
+    public ArrayList<Student> selectAllGrupsWithCuratorsAndStudents() {
+        final String sqlQuery = String.format("SELECT students.id, students.fullName, students.sex, " +
+                "group1.groupName, curator.curatorName" +
+                " FROM students JOIN group1 ON students.idGroup=group1.id" +
+                " JOIN curator ON group1.idCurator=curator.id ORDER BY students.id ASC;");
+        return select(sqlQuery);
+    }
+
+    public ArrayList<Student> selectSearchGroup() {
+        final String sqlQuery = String.format("SELECT fullName " +
+                "FROM students WHERE idGroup=(SELECT id FROM group1 WHERE groupName='" + groupSearch + "')");
+        return select(sqlQuery);
     }
 }

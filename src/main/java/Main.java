@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class Main {
 
-    private static final String groupSearch = "оптика";
-
     public static void main(String[] args) {
         try {
 
@@ -82,30 +80,23 @@ public class Main {
 
             System.out.println("----------------------------------------------------------");
             System.out.print("Всего студентов:");
-            studentTable.select("SELECT COUNT(*) FROM %s");
+            studentTable.selectAllStudents();
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все студентки:");
-            studentTable.select("SELECT fullName FROM students WHERE sex='ж'");
+            studentTable.selectAllFemailStudents();
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все группы с кураторами:");
-            studentTable.select("SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
-                    "FROM group1 \n" +
-                    "JOIN curator \n" +
-                    "ON group1.idCurator=curator.id;");
+            studentTable.selectAllGrupsWithCurators();
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все группы с кураторами и студентами:");
-            studentTable.select("SELECT students.id, students.fullName, students.sex, " +
-                    "group1.groupName, curator.curatorName" +
-                    " FROM students JOIN group1 ON students.idGroup=group1.id" +
-                    " JOIN curator ON group1.idCurator=curator.id ORDER BY students.id ASC;");
+            studentTable.selectAllGrupsWithCuratorsAndStudents();
             System.out.println("----------------------------------------------------------");
 
             System.out.println("Все студенты из заданой группы:");
-            studentTable.select("SELECT fullName " +
-                    "FROM students WHERE idGroup=(SELECT id FROM group1 WHERE groupName='" + groupSearch + "')");
+            studentTable.selectSearchGroup();
             System.out.println("----------------------------------------------------------");
 
         } finally {
