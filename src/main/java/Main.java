@@ -70,6 +70,7 @@ public class Main {
             for (Curator tmpe : curators) {
                 System.out.println(tmpe.toString());
             }
+
             //меняем id куратора
             groupTable.updateIdByName("оптика", 234, "group1");
             //SQL запросы
