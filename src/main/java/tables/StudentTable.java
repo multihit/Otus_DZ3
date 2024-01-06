@@ -68,27 +68,27 @@ public class StudentTable extends AbsTable {
     public void selectAllFemaleStudents() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все студентки:");
-        final String sqlQuery = String.format("SELECT fullName FROM students WHERE sex='ж'");
+        final String sqlQuery = "SELECT fullName FROM students WHERE sex='ж'";
         select(sqlQuery);
     }
 
     public void selectAllGroupsWithCurators() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все группы с кураторами:");
-        final String sqlQuery = String.format("SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
+        final String sqlQuery = "SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
                 "FROM group1 \n" +
                 "JOIN curator \n" +
-                "ON group1.idCurator=curator.id;");
+                "ON group1.idCurator=curator.id;";
         select(sqlQuery);
     }
 
     public void selectAllGroupsWithCuratorsAndStudents() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все группы с кураторами и студентами:");
-        final String sqlQuery = String.format("SELECT students.id, students.fullName, students.sex, " +
+        final String sqlQuery = "SELECT students.id, students.fullName, students.sex, " +
                 "group1.groupName, curator.curatorName" +
                 " FROM students JOIN group1 ON students.idGroup=group1.id" +
-                " JOIN curator ON group1.idCurator=curator.id ORDER BY students.id ASC;");
+                " JOIN curator ON group1.idCurator=curator.id ORDER BY students.id ASC;";
         select(sqlQuery);
     }
 
