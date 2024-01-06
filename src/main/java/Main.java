@@ -75,9 +75,9 @@ public class Main {
             groupTable.updateIdByName("оптика", 234, "group1");
             //SQL запросы
             studentTable.selectAllStudents();
-            studentTable.selectAllFemailStudents();
-            studentTable.selectAllGrupsWithCurators();
-            studentTable.selectAllGrupsWithCuratorsAndStudents();
+            studentTable.selectAllFemaleStudents();
+            studentTable.selectAllGroupsWithCurators();
+            studentTable.selectAllGroupsWithCuratorsAndStudents();
             studentTable.selectSearchGroup();
 
         } finally {

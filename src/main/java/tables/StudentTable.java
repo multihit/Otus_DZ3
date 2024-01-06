@@ -65,14 +65,14 @@ public class StudentTable extends AbsTable {
         return select(sqlQuery);
     }
 
-    public ArrayList<Student> selectAllFemailStudents() {
+    public ArrayList<Student> selectAllFemaleStudents() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все студентки:");
         final String sqlQuery = String.format("SELECT fullName FROM students WHERE sex='ж'");
         return select(sqlQuery);
     }
 
-    public ArrayList<Student> selectAllGrupsWithCurators() {
+    public ArrayList<Student> selectAllGroupsWithCurators() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все группы с кураторами:");
         final String sqlQuery = String.format("SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
@@ -82,7 +82,7 @@ public class StudentTable extends AbsTable {
         return select(sqlQuery);
     }
 
-    public ArrayList<Student> selectAllGrupsWithCuratorsAndStudents() {
+    public ArrayList<Student> selectAllGroupsWithCuratorsAndStudents() {
         System.out.println("----------------------------------------------------------");
         System.out.println("Все группы с кураторами и студентами:");
         final String sqlQuery = String.format("SELECT students.id, students.fullName, students.sex, " +
