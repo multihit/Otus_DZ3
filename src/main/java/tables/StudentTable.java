@@ -59,16 +59,22 @@ public class StudentTable extends AbsTable {
     }
 
     public ArrayList<Student> selectAllStudents() {
+        System.out.println("----------------------------------------------------------");
+        System.out.print("Всего студентов:");
         final String sqlQuery = String.format("SELECT COUNT(*) FROM %s", tableName);
         return select(sqlQuery);
     }
 
     public ArrayList<Student> selectAllFemailStudents() {
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Все студентки:");
         final String sqlQuery = String.format("SELECT fullName FROM students WHERE sex='ж'");
         return select(sqlQuery);
     }
 
     public ArrayList<Student> selectAllGrupsWithCurators() {
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Все группы с кураторами:");
         final String sqlQuery = String.format("SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
                 "FROM group1 \n" +
                 "JOIN curator \n" +
@@ -77,6 +83,8 @@ public class StudentTable extends AbsTable {
     }
 
     public ArrayList<Student> selectAllGrupsWithCuratorsAndStudents() {
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Все группы с кураторами и студентами:");
         final String sqlQuery = String.format("SELECT students.id, students.fullName, students.sex, " +
                 "group1.groupName, curator.curatorName" +
                 " FROM students JOIN group1 ON students.idGroup=group1.id" +
@@ -85,6 +93,8 @@ public class StudentTable extends AbsTable {
     }
 
     public ArrayList<Student> selectSearchGroup() {
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Все студенты из заданой группы:");
         final String sqlQuery = String.format("SELECT fullName " +
                 "FROM students WHERE idGroup=(SELECT id FROM group1 WHERE groupName='" + groupSearch + "')");
         return select(sqlQuery);

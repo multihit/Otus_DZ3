@@ -37,7 +37,6 @@ public class Main {
             }
 
             students = studentTable.selectAll();
-            System.out.println("----------------------------------------------------------");
 
             for (Student tmp : students) {
                 System.out.println(tmp.toString());
@@ -53,7 +52,6 @@ public class Main {
 
 
             groups = groupTable.selectAll();
-            System.out.println("----------------------------------------------------------");
 
             for (Group tm : groups) {
                 System.out.println(tm.toString());
@@ -68,7 +66,6 @@ public class Main {
                 curatorTable.insert(new Curator(476, "Ушакова Василиса Евгеньевна"));
             }
 
-            System.out.println("----------------------------------------------------------");
             curators = curatorTable.selectAll();
 
             for (Curator tmpe : curators) {
@@ -77,27 +74,12 @@ public class Main {
 
             //меняем id куратора
             groupTable.updateIdByName("оптика", 234, "group1");
-
-            System.out.println("----------------------------------------------------------");
-            System.out.print("Всего студентов:");
+            //SQL запросы
             studentTable.selectAllStudents();
-            System.out.println("----------------------------------------------------------");
-
-            System.out.println("Все студентки:");
             studentTable.selectAllFemailStudents();
-            System.out.println("----------------------------------------------------------");
-
-            System.out.println("Все группы с кураторами:");
             studentTable.selectAllGrupsWithCurators();
-            System.out.println("----------------------------------------------------------");
-
-            System.out.println("Все группы с кураторами и студентами:");
             studentTable.selectAllGrupsWithCuratorsAndStudents();
-            System.out.println("----------------------------------------------------------");
-
-            System.out.println("Все студенты из заданой группы:");
             studentTable.selectSearchGroup();
-            System.out.println("----------------------------------------------------------");
 
         } finally {
             MySQLConnector.close();
