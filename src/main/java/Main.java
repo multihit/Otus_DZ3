@@ -5,6 +5,7 @@ import objects.Student;
 import tables.CuratorTable;
 import tables.GroupTable;
 import tables.StudentTable;
+import utils.Tools;
 
 import java.util.ArrayList;
 
@@ -42,7 +43,7 @@ public class Main {
                 System.out.println(tmp.toString());
             }
 
-            System.out.println("----------------------------------------------------------");
+            Tools.delimeter();
             ArrayList<Group> groups = groupTable.selectAll();
             if (groups.size() < 3) {
                 groupTable.insert(new Group(4453, "физика", 23423));
@@ -55,8 +56,8 @@ public class Main {
             for (Group tm : groups) {
                 System.out.println(tm.toString());
             }
-            System.out.println("----------------------------------------------------------");
 
+            Tools.delimeter();
             ArrayList<Curator> curators = curatorTable.selectAll();
             if (curators.size() < 4) {
                 curatorTable.insert(new Curator(23423, "Буянов Петр Ильич"));

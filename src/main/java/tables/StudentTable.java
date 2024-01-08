@@ -2,6 +2,7 @@ package tables;
 
 
 import objects.Student;
+import utils.Tools;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -59,21 +60,21 @@ public class StudentTable extends AbsTable {
     }
 
     public void selectAllStudents() {
-        System.out.println("----------------------------------------------------------");
+        Tools.delimeter();
         System.out.print("Всего студентов:");
         final String sqlQuery = String.format("SELECT COUNT(*) FROM %s", tableName);
         select(sqlQuery);
     }
 
     public void selectAllFemaleStudents() {
-        System.out.println("----------------------------------------------------------");
+        Tools.delimeter();
         System.out.println("Все студентки:");
         final String sqlQuery = "SELECT fullName FROM students WHERE sex='ж'";
         select(sqlQuery);
     }
 
     public void selectAllGroupsWithCuratorsAndStudents() {
-        System.out.println("----------------------------------------------------------");
+        Tools.delimeter();
         System.out.println("Все группы с кураторами и студентами:");
         final String sqlQuery = "SELECT students.id, students.fullName, students.sex, " +
                 "group1.groupName, curator.curatorName" +
@@ -83,7 +84,7 @@ public class StudentTable extends AbsTable {
     }
 
     public void selectSearchGroup() {
-        System.out.println("----------------------------------------------------------");
+        Tools.delimeter();
         System.out.println("Все студенты из заданой группы:");
         final String sqlQuery = String.format("SELECT fullName " +
                 "FROM students WHERE idGroup=(SELECT id FROM group1 WHERE groupName='" + groupSearch + "')");
