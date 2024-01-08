@@ -1,6 +1,7 @@
 package tables;
 
 import objects.Group;
+import utils.Tools;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,7 +65,7 @@ public class GroupTable extends AbsTable {
     }
 
     public void selectAllGroupsWithCurators() {
-        System.out.println("----------------------------------------------------------");
+        Tools.delimeter();
         System.out.println("Все группы с кураторами:");
         final String sqlQuery = "SELECT group1.idCurator, curator.curatorName, group1.groupName \n" +
                 "FROM group1 \n" +
